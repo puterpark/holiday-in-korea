@@ -195,6 +195,7 @@ public class CreateIcsFile {
         addHoliday(list, 20240916, "추석 전날");
         addHoliday(list, 20240917, "추석");
         addHoliday(list, 20240918, "추석 다음 날");
+        addHoliday(list, 20241001, "임시공휴일(국군의 날)");
 
         // 2025년
         commonHoliday(2025, list);
