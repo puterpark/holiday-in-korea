@@ -50,11 +50,12 @@ public class CreateIcsFile {
         list.forEach(holiday -> {
             cnt[0]++;
             Integer date = holiday.date();
+            String desc = holiday.desc();
             sb.append("BEGIN:VEVENT").append(LINE_SEPARATOR);
             sb.append("DTSTART;VALUE=DATE:").append(date).append(LINE_SEPARATOR);
             sb.append("DTSTAMP:").append(date).append("T000000Z").append(LINE_SEPARATOR);
-            sb.append("UID:").append(date).append(LINE_SEPARATOR);
-            sb.append("SUMMARY:").append(holiday.desc()).append(LINE_SEPARATOR);
+            sb.append("UID:").append(date).append("-").append(desc).append(LINE_SEPARATOR);
+            sb.append("SUMMARY:").append(desc).append(LINE_SEPARATOR);
             sb.append("CLASS:PUBLIC").append(LINE_SEPARATOR);
             sb.append("TRANSP:TRANSPARENT").append(LINE_SEPARATOR);
             sb.append("END:VEVENT").append(list.size() == cnt[0] ? "" : LINE_SEPARATOR);
