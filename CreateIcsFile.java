@@ -134,6 +134,10 @@ public class CreateIcsFile {
         if (holiday0505 != null) {
             addHoliday(list, toInteger(holiday0505), "대체공휴일(어린이날)");
         }
+        LocalDate holiday0815 = substituteHoliday(int0815);
+        if (holiday0815 != null) {
+            addHoliday(list, toInteger(holiday0815), "대체공휴일(광복절)");
+        }
         LocalDate holiday1003 = substituteHoliday(int1003);
         if (holiday1003 != null) {
             addHoliday(list, toInteger(holiday1003), "대체공휴일(개천절)");
@@ -210,6 +214,17 @@ public class CreateIcsFile {
         addHoliday(list, 20251006, "추석");
         addHoliday(list, 20251007, "추석 다음 날");
         addHoliday(list, 20251008, "대체공휴일(추석)");
+
+        // 2026년
+        commonHoliday(2026, list);
+        addHoliday(list, 20260216, "설날 전날");
+        addHoliday(list, 20260217, "설날");
+        addHoliday(list, 20260218, "설날 다음 날");
+        addHoliday(list, 20260524, "부처님오신날");
+        addHoliday(list, 20260525, "대체공휴일(부처님오신날)");
+        addHoliday(list, 20260924, "추석 전날");
+        addHoliday(list, 20260925, "추석");
+        addHoliday(list, 20260926, "추석 다음 날");
 
         return list;
     }
