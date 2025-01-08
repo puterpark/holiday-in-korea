@@ -200,6 +200,7 @@ public class CreateIcsFile {
 
         // 2025년
         commonHoliday(2025, list);
+        addHoliday(list, 20250127, "임시공휴일(선 연휴)");
         addHoliday(list, 20250128, "설날 전날");
         addHoliday(list, 20250129, "설날");
         addHoliday(list, 20250130, "설날 다음 날");
