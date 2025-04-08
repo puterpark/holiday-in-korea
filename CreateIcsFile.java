@@ -210,6 +210,7 @@ public class CreateIcsFile {
         addHoliday(list, 20250130, "설날 다음 날");
         addHoliday(list, 20250505, "부처님오신날");
         addHoliday(list, 20250506, "대체공휴일(부처님오신날)");
+        addHoliday(list, 20250603, "제21대 대통령 선거");
         addHoliday(list, 20251005, "추석 전날");
         addHoliday(list, 20251006, "추석");
         addHoliday(list, 20251007, "추석 다음 날");
