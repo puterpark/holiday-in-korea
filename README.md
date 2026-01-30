@@ -1,5 +1,5 @@
 # holiday-in-korea
 
 ```
-java -Dencoding.file=UTF-8 CreateIcsFile.java
+java -Dfile.encoding=UTF-8 CreateIcsFile.java
 ```

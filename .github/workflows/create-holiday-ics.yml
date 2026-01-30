@@ -1,0 +1,42 @@
+name: Create and Push ICS File
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 리파지토리 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      # 2. Java 실행 환경 설정 (JDK 설치)
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      # 3. Java 파일 실행
+      - name: Run CreateIcsFile
+        run: |
+          java -Dfile.encoding=UTF-8 CreateIcsFile.java
+
+      # 4. 변경된 파일(holiday.ics)을 스테이징하고 푸시
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "Puter"
+          git config --global user.email "puterpark@me.com"
+          
+          git add holiday.ics
+          
+          if ! git diff --staged --quiet; then
+            git commit -m "update: holiday.ics"
+            git push
+          fi
