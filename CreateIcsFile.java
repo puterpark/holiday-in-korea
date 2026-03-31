@@ -109,6 +109,7 @@ public class CreateIcsFile {
         // 양력 휴일
         Integer int0101 = Integer.parseInt(year + "0101");
         Integer int0301 = Integer.parseInt(year + "0301");
+        Integer int0501 = Integer.parseInt(year + "0501"); // 2026년 이후
         Integer int0505 = Integer.parseInt(year + "0505");
         Integer int0606 = Integer.parseInt(year + "0606");
         Integer int0717 = Integer.parseInt(year + "0717"); // 2026년 이후
@@ -119,6 +120,9 @@ public class CreateIcsFile {
 
         addHoliday(list, int0101, "새해 첫날");
         addHoliday(list, int0301, "삼일절");
+        if (year >= 2026) {
+            addHoliday(list, int0501, "노동절");
+        }
         addHoliday(list, int0505, "어린이날");
         addHoliday(list, int0606, "현충일");
         if (year >= 2026) {
@@ -164,6 +168,12 @@ public class CreateIcsFile {
             LocalDate holiday0717 = substituteHoliday(int0717);
             if (holiday0717 != null) {
                 addHoliday(list, toInteger(holiday0717), "대체공휴일(제헌절)");
+            }
+
+            // 2026년부터 노동절 대체공휴일 지정
+            LocalDate holiday0501 = substituteHoliday(int0501);
+            if (holiday0501 != null) {
+                addHoliday(list, toInteger(holiday0501), "대체공휴일(노동절)");
             }
         }
     }
