@@ -133,7 +133,7 @@ public class CreateIcsFile {
         addHoliday(list, int1009, "한글날");
         addHoliday(list, int1225, "크리스마스");
 
-        // 삼일절, 어린이날, 개천절, 한글날 대체공휴일
+        // 삼일절, 어린이날, 광복절, 개천절, 한글날 대체공휴일
         LocalDate holiday0301 = substituteHoliday(int0301);
         if (holiday0301 != null) {
             addHoliday(list, toInteger(holiday0301), "대체공휴일(삼일절)");
@@ -249,6 +249,17 @@ public class CreateIcsFile {
         addHoliday(list, 20260924, "추석 전날");
         addHoliday(list, 20260925, "추석");
         addHoliday(list, 20260926, "추석 다음 날");
+
+        // 2026년
+        commonHoliday(2027, list);
+        addHoliday(list, 20270206, "설날 전날");
+        addHoliday(list, 20270207, "설날");
+        addHoliday(list, 20270208, "설날 다음 날");
+        addHoliday(list, 20270209, "대체공휴일(설날)");
+        addHoliday(list, 20270513, "부처님오신날");
+        addHoliday(list, 20270914, "추석 전날");
+        addHoliday(list, 20270915, "추석");
+        addHoliday(list, 20270916, "추석 다음 날");
 
         return list;
     }
